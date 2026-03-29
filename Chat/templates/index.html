@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: #38bdf8;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        #messages {
+            list-style: none;
+            padding: 0;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        li {
+            background: #334155;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 8px;
+        }
+
+        .pseudo {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .system {
+            color: orange;
+        }
+
+        #chat {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>💬 Salon : {{ room }}</h2>
+
+    <div id="login">
+        <input id="pseudo" placeholder="Entre ton pseudo">
+        <button onclick="joinChat()">Entrer</button>
+    </div>
+
+    <div id="chat">
+        <ul id="messages"></ul>
+
+        <input id="message" placeholder="Message...">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+
+</div>
+
+<!-- Socket.IO -->
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+<!-- Ton script externe -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
