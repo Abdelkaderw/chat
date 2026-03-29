@@ -1,4 +1,3 @@
-flask
-flask-socketio
-eventlet
-gunicorn
+git add requirements.txt
+git commit -m "fix requirements"
+git push
